@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
 
     if (!stripeSecretKey) {
       return NextResponse.json(
-        { error: 'Stripe is not configured yet.' },
+        { error: 'Stripe is not configuredd yet.' },
         { status: 500 }
       );
     }
