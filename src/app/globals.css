@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Zemin Bembeyaz, Yazılar Koyu Lacivert/Siyah */
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Yumuşak Kaydırma (Menü linkleri için) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Seçim Rengi (Mavi) */
+::selection {
+  background-color: #e0f2fe;
+  color: #0f172a;
+}

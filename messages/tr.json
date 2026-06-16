@@ -1,0 +1,27 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "whyUs": "Why Choose Us",
+    "contact": "Contact",
+    "getQuote": "Get a Quote"
+  },
+  "Hero": {
+    "title": "Architectural Boundaries",
+    "subtitle": "Redefining outdoor spaces.",
+    "cta": "Explore Collections",
+    "nightMode": "Night Mode"
+  },
+  "Showcase": {
+    "title": "Signature Collection",
+    "items": {
+      "antrasit": { "title": "Titanium", "description": "Desc" },
+      "wood": { "title": "Wood", "description": "Desc" },
+      "premium": { "title": "Tech", "description": "Desc" }
+    }
+  },
+  "About": { "title": "About", "description": "Desc", "badge": "Badge" },
+  "WhyChooseUs": { "title": "Why", "subtitle": "Sub", "items": [] },
+  "Catalog": { "title": "Catalog", "subtitle": "Sub" },
+  "Contact": { "title": "Contact", "form": { "name": "Name", "email": "Email", "phone": "Phone", "message": "Msg", "submit": "Send" }, "whatsapp": "Chat", "catalog": "Scan" }
+}

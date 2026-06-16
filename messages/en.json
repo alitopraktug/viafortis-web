@@ -1,0 +1,75 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "whyUs": "Why Choose Us",
+    "contact": "Contact",
+    "getQuote": "Get a Quote"
+  },
+  "Hero": {
+    "title": "Beyond Boundaries Aesthetics: Via Fortis",
+    "subtitle": "Customize outdoor living with modern garden fences and immersive landscape architecture.",
+    "cta": "Explore Collections",
+    "nightMode": "Night Mode"
+  },
+  "About": {
+    "title": "The Strong Way",
+    "description": "Via Fortis means 'the strong way' — a path built on clarity, quality and thoughtful architectural design. We believe premium quality doesn't have to be unreachable. Good materials, clean design and reliable engineering should be accessible.",
+    "badge": "Architectural Mindset"
+  },
+  "WhyChooseUs": {
+    "title": "Straightforward Quality",
+    "subtitle": "No complications. Just well-made products that look good and feel solid.",
+    "items": [
+      {
+        "title": "Thoughtful Design",
+        "desc": "Clean lines, consistent finishes. Everything feels intentional."
+      },
+      {
+        "title": "Complete Solutions",
+        "desc": "A gate comes with its system. No surprises, no chasing extra parts."
+      },
+      {
+        "title": "Reliable Materials",
+        "desc": "Solid, durable, long-lasting. Built to perform in real homes."
+      },
+      {
+        "title": "Clear Communication",
+        "desc": "Honest details. No confusing jargon. Straightforward info."
+      },
+      {
+        "title": "Accessible Premium",
+        "desc": "High standards without the 'luxury attitude'."
+      }
+    ]
+  },
+  "Showcase": {
+    "title": "Signature Collection",
+    "items": {
+      "antrasit": {
+        "title": "Titanium Anthracite",
+        "description": "Ultra-matte finish aluminium profiles designed for modern minimalist architecture."
+      },
+      "wood": {
+        "title": "Nordic Wood Series",
+        "description": "The warmth of natural timber texture combined with the durability of aerospace-grade aluminium."
+      },
+      "premium": {
+        "title": "Privacy Shield Tech",
+        "description": "Seamless interlocking panels providing 100% privacy and superior wind resistance."
+      }
+    }
+  },
+  "Contact": {
+    "title": "Get in Touch",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Send Message"
+    },
+    "whatsapp": "Chat on WhatsApp",
+    "catalog": "Scan for Catalogue"
+  }
+}
