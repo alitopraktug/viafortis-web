@@ -14,7 +14,7 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: "Do you offer installation?",
-    answer: "No, we are supply only. We provide the products, and customers are responsible for arranging installation through their own installer or contractor."
+    answer: "Yes, we offer both supply and installation services within the Essex area. For customers outside Essex, we currently provide supply-only services. Please contact us with your location and project details for a quotation."
   },
   {
     question: "What is the delivery time?",
@@ -22,7 +22,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: "Do the products come with a warranty?",
-    answer: "Yes, minimum 10 years on powder coating. All Via Fortis products come with comprehensive warranty coverage. Specific warranty terms vary by product and will be detailed in your purchase documentation."
+    answer: "Yes, minimum 5 years on powder coating. All Via Fortis products come with comprehensive warranty coverage. Specific warranty terms vary by product and will be detailed in your purchase documentation."
   },
   {
     question: "Can I return my order?",
