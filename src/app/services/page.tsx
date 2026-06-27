@@ -40,7 +40,7 @@ export default function ServicesPage() {
       <Header />
 
       <main className="pt-20 sm:pt-24">
-        <section className="bg-[#0F5138] text-white py-16 sm:py-24">
+        <section className="bg-[#051024] text-white py-16 sm:py-24">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-4xl">
               <p className="text-sm tracking-[0.2em] uppercase text-white/70">
@@ -68,7 +68,7 @@ export default function ServicesPage() {
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#0F5138] rounded-sm font-semibold uppercase tracking-wider hover:bg-white/90 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#051024] rounded-sm font-semibold uppercase tracking-wider hover:bg-white/90 transition-colors"
                 >
                   Get a Free Quote
                   <ArrowRight className="w-4 h-4" />
@@ -107,7 +107,7 @@ export default function ServicesPage() {
                         key={item}
                         className="flex items-start gap-3 text-slate-700 leading-relaxed"
                       >
-                        <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#0F5138]" />
+                        <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#051024]" />
                         <span>{item}</span>
                       </li>
                     ))}

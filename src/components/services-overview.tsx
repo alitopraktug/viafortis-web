@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function ServicesOverview() {
   return (
-    <section className="bg-[#0F5138] text-white py-12 sm:py-16">
+    <section className="bg-[#051024] text-white py-12 sm:py-16">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <p className="text-sm sm:text-base tracking-[0.18em] uppercase text-white/80">
@@ -31,7 +31,7 @@ export default function ServicesOverview() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <Link
               href="/#contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#0F5138] rounded-sm font-semibold uppercase tracking-wider hover:bg-white/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#051024] rounded-sm font-semibold uppercase tracking-wider hover:bg-white/90 transition-colors"
             >
               Get a Free Quote
               <ArrowRight className="w-4 h-4" />
