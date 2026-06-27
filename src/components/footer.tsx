@@ -42,12 +42,13 @@ export default function Footer() {
           <div className="space-y-6">
             <h3 className="text-xs font-bold tracking-widest text-white/70 uppercase">Links</h3>
             <ul className="space-y-4">
-              <Link href="/" className="block text-white/80 hover:text-white transition-colors font-light">Home</Link>
-              <Link href="/products" className="block text-white/80 hover:text-white transition-colors font-light">Products</Link>
-              <Link href="/gallery" className="block text-white/80 hover:text-white transition-colors font-light">Projects</Link>
-              <Link href="/about" className="block text-white/80 hover:text-white transition-colors font-light">Why Via Fortis</Link>
-              <Link href="#contact" className="block text-white/80 hover:text-white transition-colors font-light">Contact</Link>
-            </ul>
+               <Link href="/" className="block text-white/80 hover:text-white transition-colors font-light">Home</Link>
+               <Link href="/products" className="block text-white/80 hover:text-white transition-colors font-light">Products</Link>
+               <Link href="/services" className="block text-white/80 hover:text-white transition-colors font-light">Services</Link>
+               <Link href="/gallery" className="block text-white/80 hover:text-white transition-colors font-light">Projects</Link>
+               <Link href="/about" className="block text-white/80 hover:text-white transition-colors font-light">About</Link>
+               <Link href="/#contact" className="block text-white/80 hover:text-white transition-colors font-light">Contact</Link>
+</ul>
           </div>
 
           <div className="space-y-6">

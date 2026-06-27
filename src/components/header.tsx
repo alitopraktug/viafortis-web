@@ -12,34 +12,40 @@ export default function Header() {
   const { cartCount } = useCart();
 
   const links = [
-    { name: "HOME", href: "/" },
-    { name: "PRODUCTS", href: "/products" },
-    { name: "WHY VIA FORTIS", href: "/about" },
-    { name: "PROJECTS", href: "/gallery" },
-    { name: "CONTACT", href: "/#contact" },
-  ];
-
+  { name: "HOME", href: "/" },
+  { name: "PRODUCTS", href: "/products" },
+  { name: "SERVICES", href: "/services" },
+  { name: "PROJECTS", href: "/gallery" },
+  { name: "ABOUT", href: "/about" },
+  { name: "CONTACT", href: "/#contact" },
+];
   return (
     <>
       {/* HEADER: Dark Navy, Header and Hero Same Colour */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#051024] shadow-lg">
         <div className="container mx-auto px-3 sm:px-4 h-20 sm:h-24 flex items-center justify-between">
           
-          {/* LOGO: Left Side - Icon + Text Side by Side, Silver Grey */}
-          <Link href="/" className="z-50 flex items-center gap-3">
-            <div className="relative w-10 h-10">
-              <Image 
-                src="/images/logo.png" 
-                alt="Via Fortis - Architectural Fencing & Gates Logo" 
-                fill 
-                className="object-contain brightness-0 invert opacity-60"
-                priority
-              />
-            </div>
-            <span className="text-lg sm:text-xl md:text-xl font-bold italic tracking-tight text-[#C0C0C0] leading-none uppercase">
-              VIA FORTIS
-            </span>
-          </Link>
+          {/* LOGO: Left Side - Icon + Text + Tagline */}
+<Link href="/" className="z-50 flex items-center gap-3">
+  <div className="relative w-10 h-10 shrink-0">
+    <Image 
+      src="/images/logo.png" 
+      alt="Via Fortis - Architectural Fencing & Gates Logo" 
+      fill 
+      className="object-contain brightness-0 invert opacity-60"
+      priority
+    />
+  </div>
+
+  <div className="flex flex-col leading-none">
+    <span className="text-lg sm:text-xl md:text-xl font-bold italic tracking-tight text-[#C0C0C0] uppercase">
+      VIA FORTIS
+    </span>
+    <span className="mt-1 text-[8px] sm:text-[9px] font-medium tracking-[0.16em] text-[#C0C0C0]/70 uppercase whitespace-nowrap">
+      OUTDOOR & INTERIOR SOLUTIONS
+    </span>
+  </div>
+</Link>
 
           {/* DESKTOP MENU: Right Side, Uppercase, Small, Wide Letter Spacing, Medium */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8">
