@@ -674,19 +674,19 @@ export default function ProductDetailPage() {
                     <div className="p-4 md:p-6 bg-[#051024] border-r border-gray-200 flex items-center justify-center">
                       <div className="flex flex-col items-center gap-2">
                         <Check className="w-5 h-5 text-green-400" />
-                        <span className="text-sm text-white font-medium text-center">50+ Years</span>
+                        <span className="text-sm text-white font-medium text-center">20 Years</span>
                       </div>
                     </div>
                     <div className="p-4 md:p-6 bg-white border-r border-gray-200 flex items-center justify-center">
                       <div className="flex flex-col items-center gap-2">
                         <AlertTriangle className="w-5 h-5 text-amber-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">15-25 Years</span>
+                        <span className="text-sm text-gray-700 font-medium text-center">7-8 Years</span>
                       </div>
                     </div>
                     <div className="p-4 md:p-6 bg-white flex items-center justify-center">
                       <div className="flex flex-col items-center gap-2">
                         <X className="w-5 h-5 text-red-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">10-15 Years</span>
+                        <span className="text-sm text-gray-700 font-medium text-center">5 Years</span>
                       </div>
                     </div>
                   </div>

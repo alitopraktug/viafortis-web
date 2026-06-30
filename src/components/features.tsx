@@ -51,7 +51,7 @@ export default function Features() {
           className="mb-20 text-center"
         >
           <h2 className="text-5xl md:text-7xl font-semibold text-white mb-4 tracking-tight max-w-3xl mx-auto drop-shadow-lg">
-            Why Via Fortis
+            About
           </h2>
           <p className="text-lg text-white font-normal max-w-3xl mx-auto">
             Quality that speaks for itself.

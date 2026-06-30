@@ -1,132 +1,112 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { CheckCircle } from "lucide-react";
+
+const reasons = [
+  "Bespoke Craftsmanship",
+  "Premium Quality Materials",
+  "Attention to Detail",
+  "Reliable Communication",
+  "Residential & Commercial Projects",
+  "Design • Supply • Installation",
+];
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <div className="pt-24">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-20 max-w-4xl">
-          
-          {/* Main Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-12 md:mb-16"
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#051024] tracking-tight text-center">
-              WHY VIA FORTIS
-            </h1>
-          </motion.div>
 
-          {/* About Via Fortis Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="mb-16 md:mb-20"
-          >
-            <h2 className="text-2xl md:text-3xl font-serif font-semibold text-[#051024] tracking-tight text-center mb-6 md:mb-8">
-              About Via Fortis
-            </h2>
-            <div className="space-y-4 text-gray-700 leading-relaxed text-center">
-              <p className="text-base md:text-lg font-sans">
-                Via Fortis is a UK-based brand creating architectural systems for modern living. We focus on products where clean design, durable materials, and practical engineering come together — across both interior and exterior spaces.
+      <main className="pt-28 sm:pt-32">
+        <section className="py-14 sm:py-20">
+          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+            <div className="mb-12">
+              <p className="text-sm tracking-[0.2em] uppercase text-slate-500">
+                ABOUT VIA FORTIS
               </p>
-              <p className="text-base md:text-lg font-sans">
-                Our approach is rooted in modular thinking: systems that are designed to integrate naturally into real homes and age well over time. From aluminium fencing and gates to future interior and exterior solutions, every Via Fortis product follows the same core principles: clarity in design, consistency in quality, and long-term performance.
-              </p>
-              <p className="text-base md:text-lg font-sans font-medium text-[#051024]">
-                Via Fortis stands for strength with intention — designed with purpose, built to last.
-              </p>
+
+              <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#051024] leading-tight">
+                Design to Impress.
+              </h1>
             </div>
-          </motion.section>
 
-          {/* What sets Via Fortis apart Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-16 md:mb-20"
-          >
-            <h2 className="text-2xl md:text-3xl font-serif font-semibold text-[#051024] tracking-tight text-center mb-8 md:mb-12">
-              What sets Via Fortis apart
-            </h2>
-            
-            <div className="space-y-10 md:space-y-12">
-              {/* Designed with intention */}
-              <div className="text-center">
-                <h3 className="text-xl md:text-2xl font-serif font-semibold text-[#051024] tracking-tight mb-3 md:mb-4">
-                  Designed with intention
-                </h3>
-                <p className="text-base md:text-lg font-sans text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                  Every Via Fortis product is developed with a clear purpose. We don't design for trends — we design for balance between form, function, and longevity.
+            <div className="space-y-12">
+              <section>
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#051024]">
+                  Who We Are
+                </h2>
+                <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700">
+                  Via Fortis delivers premium outdoor and interior solutions for
+                  residential and commercial properties. We specialise in
+                  bespoke carpentry, kitchen fitting, fitted furniture, internal
+                  door installation, skirting & architraves, and aluminium
+                  fencing & gate systems.
                 </p>
-              </div>
+              </section>
 
-              {/* Built to last */}
-              <div className="text-center">
-                <h3 className="text-xl md:text-2xl font-serif font-semibold text-[#051024] tracking-tight mb-3 md:mb-4">
-                  Built to last
-                </h3>
-                <p className="text-base md:text-lg font-sans text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                  Materials and finishes are selected for durability and consistency, ensuring long-term performance with minimal intervention.
+              <section>
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#051024]">
+                  What We Do
+                </h2>
+                <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700">
+                  From bespoke kitchens and media walls to fitted wardrobes,
+                  understairs storage, custom furniture and aluminium gate
+                  installations, every project is tailored to our clients’ needs
+                  with precision, quality and attention to detail.
                 </p>
-              </div>
+              </section>
 
-              {/* Modular thinking */}
-              <div className="text-center">
-                <h3 className="text-xl md:text-2xl font-serif font-semibold text-[#051024] tracking-tight mb-3 md:mb-4">
-                  Modular thinking
-                </h3>
-                <p className="text-base md:text-lg font-sans text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                  Our systems are developed with modular logic, allowing structured, scalable solutions across different spaces and applications.
+              <section>
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#051024]">
+                  Our Process
+                </h2>
+                <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700">
+                  Every project begins with a consultation and site survey,
+                  followed by expert design, material selection, supply and
+                  professional installation. We manage every stage from start to
+                  finish, ensuring a seamless experience and exceptional results.
                 </p>
-              </div>
+              </section>
 
-              {/* Made to fit modern living */}
-              <div className="text-center">
-                <h3 className="text-xl md:text-2xl font-serif font-semibold text-[#051024] tracking-tight mb-3 md:mb-4">
-                  Made to fit modern living
-                </h3>
-                <p className="text-base md:text-lg font-sans text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                  Via Fortis products are designed to work across a variety of environments — indoors and out — without forcing rigid formats.
-                </p>
-              </div>
+              <section>
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#051024]">
+                  Why Choose Via Fortis
+                </h2>
 
-              {/* Consistency you can rely on */}
-              <div className="text-center">
-                <h3 className="text-xl md:text-2xl font-serif font-semibold text-[#051024] tracking-tight mb-3 md:mb-4">
-                  Consistency you can rely on
-                </h3>
-                <p className="text-base md:text-lg font-sans text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                  From design language to finish, consistency is built into every Via Fortis system, so what you see is what you get.
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {reasons.map((reason) => (
+                    <div
+                      key={reason}
+                      className="flex items-start gap-3 rounded-sm border border-slate-200 bg-slate-50 p-4"
+                    >
+                      <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#051024]" />
+                      <span className="text-slate-700 font-medium">
+                        {reason}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              <section className="rounded-sm bg-[#051024] text-white p-6 sm:p-8">
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold">
+                  Our Promise
+                </h2>
+                <p className="mt-4 text-base sm:text-lg leading-relaxed text-white/85">
+                  We believe every project should combine functionality, quality
+                  and timeless design. Our mission is to create spaces that not
+                  only meet expectations but leave a lasting impression through
+                  exceptional craftsmanship and attention to detail.
                 </p>
-              </div>
+
+                <p className="mt-6 text-xl sm:text-2xl font-serif font-bold">
+                  Design to Impress.
+                </p>
+              </section>
             </div>
-          </motion.section>
+          </div>
+        </section>
+      </main>
 
-          {/* Our approach Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mb-16 md:mb-20"
-          >
-            <h2 className="text-2xl md:text-3xl font-serif font-semibold text-[#051024] tracking-tight text-center mb-6 md:mb-8">
-              Our approach
-            </h2>
-            <p className="text-base md:text-lg font-sans text-gray-700 leading-relaxed text-center max-w-2xl mx-auto">
-              We believe good systems should feel considered, not complicated. Design should serve a purpose, materials should perform over time, and products should integrate naturally into the spaces they occupy. That is the approach behind every Via Fortis system.
-            </p>
-          </motion.section>
-
-        </div>
-      </div>
       <Footer />
     </div>
   );
