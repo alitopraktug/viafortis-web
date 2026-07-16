@@ -1,178 +1,311 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ShoppingBag } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useCart } from "@/context/CartContext";
+import Link from "next/link";
+import {
+  ChevronDown,
+  Menu,
+  ShoppingBag,
+  X,
+} from "lucide-react";
+
+const aluminiumItems = [
+  "Aluminium Fencing",
+  "Pedestrian Gates",
+];
+
+const carpentryItems = [
+  "Internal Doors",
+  "Skirting & Architraves",
+  "Bespoke Furniture",
+  "Fitted Wardrobes",
+  "Media Walls",
+  "Understairs Storage",
+];
 
 export default function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { cartCount } = useCart();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [aluminiumOpen, setAluminiumOpen] = useState(false);
+  const [carpentryOpen, setCarpentryOpen] = useState(false);
 
-  const links = [
-  { name: "HOME", href: "/" },
-  { name: "PRODUCTS", href: "/products" },
-  { name: "SERVICES", href: "/services" },
-  { name: "PROJECTS", href: "/gallery" },
-  { name: "ABOUT", href: "/about" },
-  { name: "CONTACT", href: "/#contact" },
-];
+  function closeMobileMenu() {
+    setMobileMenuOpen(false);
+    setAluminiumOpen(false);
+    setCarpentryOpen(false);
+  }
+
   return (
     <>
-      {/* HEADER: Dark Navy, Header and Hero Same Colour */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#051024] shadow-lg">
-        <div className="container mx-auto px-3 sm:px-4 h-20 sm:h-24 flex items-center justify-between">
-          
-          {/* LOGO: Left Side - Icon + Text + Tagline */}
-<Link href="/" className="z-50 flex items-center gap-3">
-  <div className="relative w-10 h-10 shrink-0">
-    <Image 
-      src="/images/logo.png" 
-      alt="Via Fortis - Architectural Fencing & Gates Logo" 
-      fill 
-      className="object-contain brightness-0 invert opacity-60"
-      priority
-    />
-  </div>
+      <header className="fixed inset-x-0 top-0 z-50 bg-[#051024] shadow-lg">
+        <div className="container mx-auto flex h-20 items-center justify-between px-4 sm:h-24 sm:px-6">
+          {/* Logo */}
+          <Link
+            href="/"
+            onClick={closeMobileMenu}
+            className="z-50 flex items-center gap-3"
+          >
+            <div className="relative h-10 w-10 shrink-0">
+              <Image
+                src="/images/logo.png"
+                alt="Via Fortis Logo"
+                fill
+                priority
+                className="object-contain brightness-0 invert opacity-70"
+              />
+            </div>
 
-  <div className="flex flex-col leading-none">
-    <span className="text-lg sm:text-xl md:text-xl font-bold italic tracking-tight text-[#C0C0C0] uppercase">
-      VIA FORTIS
-    </span>
-    <span className="mt-1 text-[8px] sm:text-[9px] font-medium tracking-[0.16em] text-[#C0C0C0]/70 uppercase whitespace-nowrap">
-      OUTDOOR & INTERIOR SOLUTIONS
-    </span>
-  </div>
-</Link>
+            <div className="flex min-w-max flex-col items-start leading-none">
+              <span className="whitespace-nowrap text-lg font-bold italic uppercase tracking-tight text-[#C0C0C0] sm:text-xl">
+                VIA FORTIS
+              </span>
 
-          {/* DESKTOP MENU: Right Side, Uppercase, Small, Wide Letter Spacing, Medium */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-            {links.map((link) => (
-              <Link 
-                key={link.name} 
-                href={link.href}
-                className="text-xs font-medium text-white hover:text-[#C5A059] transition-colors uppercase tracking-widest"
+              <span className="mt-1 whitespace-nowrap font-serif text-[8px] font-medium italic uppercase tracking-[0.16em] text-[#C0C0C0]/70 sm:text-[9px]">
+                DESIGN TO IMPRESS.
+              </span>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
+            <Link
+              href="/"
+              className="text-xs font-medium uppercase tracking-widest text-white transition-colors hover:text-white/70"
+            >
+              Home
+            </Link>
+
+            {/* Aluminium Systems Dropdown */}
+            <div className="group relative">
+              <Link
+                href="/products"
+                className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest text-white transition-colors hover:text-white/70"
               >
-                {link.name}
+                Aluminium Systems
+                <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
               </Link>
-            ))}
+
+              <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <div className="overflow-hidden rounded-xl border border-white/10 bg-[#051024] p-2 shadow-2xl">
+                  {aluminiumItems.map((item) => (
+                    <Link
+                      key={item}
+                      href="/products"
+                      className="block rounded-lg px-4 py-3 text-sm text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+                    >
+                      {item}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Carpentry Dropdown */}
+            <div className="group relative">
+              <Link
+                href="/services"
+                className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest text-white transition-colors hover:text-white/70"
+              >
+                Carpentry
+                <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
+              </Link>
+
+              <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <div className="overflow-hidden rounded-xl border border-white/10 bg-[#051024] p-2 shadow-2xl">
+                  {carpentryItems.map((item) => (
+                    <Link
+                      key={item}
+                      href="/services"
+                      className="block rounded-lg px-4 py-3 text-sm text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+                    >
+                      {item}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <Link
+              href="/gallery"
+              className="text-xs font-medium uppercase tracking-widest text-white transition-colors hover:text-white/70"
+            >
+              Projects
+            </Link>
+
+            <Link
+              href="/about"
+              className="text-xs font-medium uppercase tracking-widest text-white transition-colors hover:text-white/70"
+            >
+              About
+            </Link>
+
+            <Link
+              href="/#contact"
+              className="text-xs font-medium uppercase tracking-widest text-white transition-colors hover:text-white/70"
+            >
+              Contact
+            </Link>
           </nav>
 
-          {/* RIGHT SIDE */}
-          <div className="flex items-center gap-4">
-            {/* BASKET ICON */}
-            <Link href="/cart" className="relative p-2 text-white hover:text-[#C5A059] transition-colors">
-              <ShoppingBag className="w-6 h-6" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
-                  {cartCount > 9 ? '9+' : cartCount}
-                </span>
-              )}
-            </Link>
-
-            <Link href="/#contact">
-              <button className="hidden lg:block px-4 lg:px-5 py-2 bg-white text-[#051024] text-[10px] lg:text-[11px] font-light rounded-full hover:bg-slate-100 transition-all duration-300 uppercase tracking-[0.2em]">
-                GET IN TOUCH
-              </button>
-            </Link>
-
-            {/* MOBILE ICON */}
-            <button 
-              className="md:hidden p-2 text-white"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          {/* Right Side */}
+          <div className="z-50 flex items-center gap-3 sm:gap-4">
+            <Link
+              href="/cart"
+              aria-label="Shopping cart"
+              className="p-2 text-white transition-colors hover:text-white/70"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <ShoppingBag className="h-6 w-6" />
+            </Link>
+
+            <Link
+              href="/#contact"
+              className="hidden rounded-full bg-white px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.2em] text-[#051024] transition-colors hover:bg-slate-100 xl:block"
+            >
+              Get in Touch
+            </Link>
+
+            <button
+              type="button"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
+              onClick={() => setMobileMenuOpen((current) => !current)}
+              className="p-2 text-white lg:hidden"
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
       </header>
 
-      {/* MOBILE MENU */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "tween", duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#051024] flex flex-col justify-start overflow-y-auto px-8 py-20 md:hidden"
-          >
-            <nav className="flex flex-col gap-6 pb-8">
-              {links.map((link) => (
-                <Link 
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl sm:text-3xl font-medium text-white border-b border-white/10 pb-4 hover:text-[#C5A059] transition-colors uppercase tracking-widest"
-                >
-                  {link.name}
-                </Link>
-              ))}
-              
-              {/* Mobile Information Section */}
-              <div className="flex flex-col gap-4 pt-4 border-t border-white/20">
-                <h3 className="text-xs font-bold tracking-widest text-white/70 uppercase pb-2">Information</h3>
-                <Link 
-                  href="/faq"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wider border-b border-white/10 pb-3"
-                >
-                  FAQs
-                </Link>
-                <Link 
-                  href="/shipping-delivery"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wider border-b border-white/10 pb-3"
-                >
-                  Shipping & Delivery
-                </Link>
-                <Link 
-                  href="/refunds-returns"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wider border-b border-white/10 pb-3"
-                >
-                  Refunds & Returns
-                </Link>
-                <Link 
-                  href="/privacy"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wider border-b border-white/10 pb-3"
-                >
-                  Privacy Policy
-                </Link>
-                <Link 
-                  href="/terms"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wider border-b border-white/10 pb-3"
-                >
-                  Terms & Conditions
-                </Link>
-              </div>
-              
-              {/* Mobile Action Buttons */}
-              <div className="flex flex-col gap-4 pt-4 border-t border-white/20">
-                <Link 
-                  href="/cart"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 text-lg font-medium uppercase tracking-wider"
-                >
-                  <ShoppingBag className="w-5 h-5" />
-                  Basket {cartCount > 0 && `(${cartCount})`}
-                </Link>
-                <Link 
-                  href="/#contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-center px-6 py-3 bg-white text-[#051024] rounded-full hover:bg-slate-100 transition-all duration-300 text-lg font-medium uppercase tracking-wider"
-                >
-                  GET IN TOUCH
-                </Link>
-              </div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-x-0 bottom-0 top-20 z-40 overflow-y-auto bg-[#051024] px-7 pb-10 sm:top-24 lg:hidden">
+          <nav className="mx-auto max-w-xl">
+            <Link
+              href="/"
+              onClick={closeMobileMenu}
+              className="block border-b border-white/10 py-5 text-xl font-medium uppercase tracking-[0.12em] text-white"
+            >
+              Home
+            </Link>
+
+            {/* Mobile Aluminium Systems */}
+            <div className="border-b border-white/10">
+              <button
+                type="button"
+                onClick={() => setAluminiumOpen((current) => !current)}
+                className="flex w-full items-center justify-between py-5 text-left text-xl font-medium uppercase tracking-[0.12em] text-white"
+              >
+                Aluminium Systems
+
+                <ChevronDown
+                  className={`h-5 w-5 transition-transform ${
+                    aluminiumOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {aluminiumOpen && (
+                <div className="pb-4 pl-4">
+                  {aluminiumItems.map((item) => (
+                    <Link
+                      key={item}
+                      href="/products"
+                      onClick={closeMobileMenu}
+                      className="block border-l border-white/20 px-4 py-3 text-sm text-white/70 transition-colors hover:text-white"
+                    >
+                      {item}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Carpentry */}
+            <div className="border-b border-white/10">
+              <button
+                type="button"
+                onClick={() => setCarpentryOpen((current) => !current)}
+                className="flex w-full items-center justify-between py-5 text-left text-xl font-medium uppercase tracking-[0.12em] text-white"
+              >
+                Carpentry
+
+                <ChevronDown
+                  className={`h-5 w-5 transition-transform ${
+                    carpentryOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {carpentryOpen && (
+                <div className="pb-4 pl-4">
+                  {carpentryItems.map((item) => (
+                    <Link
+                      key={item}
+                      href="/services"
+                      onClick={closeMobileMenu}
+                      className="block border-l border-white/20 px-4 py-3 text-sm text-white/70 transition-colors hover:text-white"
+                    >
+                      {item}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/gallery"
+              onClick={closeMobileMenu}
+              className="block border-b border-white/10 py-5 text-xl font-medium uppercase tracking-[0.12em] text-white"
+            >
+              Projects
+            </Link>
+
+            <Link
+              href="/about"
+              onClick={closeMobileMenu}
+              className="block border-b border-white/10 py-5 text-xl font-medium uppercase tracking-[0.12em] text-white"
+            >
+              About
+            </Link>
+
+            <Link
+              href="/#contact"
+              onClick={closeMobileMenu}
+              className="block border-b border-white/10 py-5 text-xl font-medium uppercase tracking-[0.12em] text-white"
+            >
+              Contact
+            </Link>
+
+            {/* Information */}
+            <div className="mt-5 border-t border-white/15 pt-5">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/55">
+                Information
+              </p>
+
+              <Link
+                href="/faq"
+                onClick={closeMobileMenu}
+                className="block border-b border-white/10 py-4 text-base uppercase tracking-wider text-white/80"
+              >
+                FAQs
+              </Link>
+
+              <Link
+                href="/shipping-delivery"
+                onClick={closeMobileMenu}
+                className="block border-b border-white/10 py-4 text-base uppercase tracking-wider text-white/80"
+              >
+                Shipping &amp; Delivery
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
     </>
   );
 }

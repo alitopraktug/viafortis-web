@@ -26,52 +26,69 @@ const inter = Inter({
   display: 'swap',
 });
 
+const siteTitle =
+  'Via Fortis | Carpentry, Aluminium Fencing & Bespoke Joinery';
+
+const siteDescription =
+  'Premium Carpentry & Aluminium Solutions across Essex. We specialise in bespoke carpentry, internal doors, fitted wardrobes, aluminium fencing, pedestrian gates and professional installations. Contact Via Fortis today for a free quotation.';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://www.viafortis.co.uk'
+  ),
+
   title: {
-    default: 'Via Fortis | Carpentry, Aluminium Fencing & Bespoke Joinery',
+    default: siteTitle,
     template: '%s | Via Fortis',
   },
-  description:
-    'Professional carpentry, bespoke furniture, fitted wardrobes, understairs storage, skirting & architraves, internal door installation, aluminium fencing and aluminium pedestrian gates. Supply & installation services for residential and commercial projects across the UK.',
+
+  description: siteDescription,
+
   keywords: [
-    'carpentry UK',
-    'bespoke joinery',
+    'carpentry Essex',
+    'bespoke carpentry',
+    'bespoke joinery Essex',
     'bespoke furniture',
     'fitted wardrobes',
-    'understairs storage',
     'internal door installation',
+    'understairs storage',
     'skirting and architraves',
-    'aluminium fencing',
+    'aluminium fencing Essex',
     'aluminium gates',
     'pedestrian gates',
+    'professional installation',
     'Via Fortis',
   ],
+
   authors: [{ name: 'Via Fortis' }],
   creator: 'Via Fortis',
   publisher: 'Via Fortis',
+
+  alternates: {
+    canonical: '/',
+  },
+
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://www.viafortis.co.uk'
-  ),
+
   openGraph: {
     type: 'website',
     locale: 'en_GB',
     url: '/',
     siteName: 'Via Fortis',
-    title: 'Via Fortis | Carpentry, Aluminium Fencing & Bespoke Joinery',
-    description:
-      'Professional carpentry, bespoke furniture, fitted wardrobes, understairs storage, skirting & architraves, internal door installation, aluminium fencing and aluminium pedestrian gates. Supply & installation services for residential and commercial projects across the UK.',
+    title: siteTitle,
+    description: siteDescription,
   },
+
   twitter: {
     card: 'summary_large_image',
-    title: 'Via Fortis | Carpentry, Aluminium Fencing & Bespoke Joinery',
-    description:
-      'Professional carpentry, bespoke furniture, fitted wardrobes, understairs storage, skirting & architraves, internal door installation, aluminium fencing and aluminium pedestrian gates.',
+    title: siteTitle,
+    description: siteDescription,
   },
+
   robots: {
     index: true,
     follow: true,
@@ -101,10 +118,15 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-1RSGV5FB7G"
           strategy="afterInteractive"
         />
+
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+
+            function gtag() {
+              window.dataLayer.push(arguments);
+            }
+
             gtag('js', new Date());
             gtag('config', 'G-1RSGV5FB7G');
           `}
