@@ -7,10 +7,10 @@ import { useParams, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { Plus, Minus, Check, ShieldCheck, Sun, Droplets, Leaf, ShoppingCart, X, AlertTriangle } from "lucide-react";
+import MaterialIntelligence from "@/components/material-intelligence";
+import { Plus, Minus, Check, ShieldCheck, Sun, Droplets, Leaf, ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { getProductById, getStockStatus } from "@/data/products";
-import type { ProductDetail } from "@/types";
 
 // Hard-coded image mapping - zero failure guarantee (no dynamic paths)
 const PRODUCT_IMAGES: Record<string, string> = {
@@ -21,17 +21,17 @@ const PRODUCT_IMAGES: Record<string, string> = {
 };
 
 const GATE_IMAGES: Record<string, string> = {
-  "Anthracite Grey": "/images/products/gates/z-gate-anthracite.png",
-  "Black": "/images/products/gates/z-gate-black.png",
-  "Dark Oak": "/images/products/gates/z-gate-dark-oak.png",
-  "Light Oak": "/images/products/gates/z-gate-light-oak.png"
-};
-
-const PEDESTRIAN_GATE_IMAGES: Record<string, string> = {
   "Anthracite Grey": "/images/products/gates/z-pedestrian-anthracite.png",
   "Black": "/images/products/gates/z-pedestrian-black.png",
   "Dark Oak": "/images/products/gates/z-pedestrian-dark-oak.png",
   "Light Oak": "/images/products/gates/z-pedestrian-light-oak.png"
+};
+
+const PEDESTRIAN_GATE_IMAGES: Record<string, string> = {
+  "Anthracite Grey": "/images/products/gates/z-gate-anthracite.png",
+  "Black": "/images/products/gates/z-gate-black.png",
+  "Dark Oak": "/images/products/gates/z-gate-dark-oak.png",
+  "Light Oak": "/images/products/gates/z-gate-light-oak.png"
 };
 
 const HORIZONTAL_SLAT_FENCE_IMAGES: Record<string, string> = {
@@ -458,7 +458,7 @@ export default function ProductDetailPage() {
                     <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mx-auto">
                       <ShieldCheck className="w-6 h-6 text-[#051024]" />
                     </div>
-                    <h4 className="text-xs font-bold text-[#051024]">10-year warranty</h4>
+                    <h4 className="text-xs font-bold text-[#051024]">5-year warranty</h4>
                     <p className="text-xs text-gray-600 font-light">Guaranteed durability of the finish</p>
                   </div>
                   <div className="text-center space-y-2">
@@ -509,7 +509,7 @@ export default function ProductDetailPage() {
               {/* Additional Info */}
               <div className="pt-2 border-t border-gray-200 space-y-1 text-xs text-gray-600">
                 <p className="font-light">
-                  <span className="font-medium">Warranty:</span> {product.warranty || '10-Year Warranty'}
+                  <span className="font-medium">Warranty:</span> {product.warranty || '5-Year Warranty'}
                 </p>
                 <p className="font-light">
                   <span className="font-medium">Delivery:</span> 2-4 weeks (UK Mainland)
@@ -534,201 +534,10 @@ export default function ProductDetailPage() {
             </div>
           </div>
 
-          {/* Material Intelligence Section */}
-          <div className="mt-16 md:mt-20 pt-8 border-t border-gray-200">
-            <div className="mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#051024] tracking-tight mb-2">
-                Material Intelligence
-              </h2>
-              <p className="text-base md:text-lg text-gray-600 font-light">
-                A clear comparison of modern fencing materials.
-              </p>
-            </div>
-
-            {/* Comparison Table */}
-            <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
-              <div className="inline-block min-w-[600px] border border-gray-200 rounded-lg overflow-hidden">
-                {/* Header Row */}
-                <div className="grid grid-cols-4 border-b border-gray-200">
-                  <div className="p-4 md:p-6 bg-gray-50 border-r border-gray-200 sticky left-0 z-10">
-                    <h3 className="text-sm md:text-base font-bold text-[#051024]">Features</h3>
-                  </div>
-                  <div className="p-4 md:p-6 bg-[#051024] border-r border-gray-200">
-                    <h3 className="text-sm md:text-base font-bold text-white text-center">Aluminium<br />(Via Fortis)</h3>
-                  </div>
-                  <div className="p-4 md:p-6 bg-white border-r border-gray-200">
-                    <h3 className="text-sm md:text-base font-bold text-[#051024] text-center">Composite</h3>
-                  </div>
-                  <div className="p-4 md:p-6 bg-white">
-                    <h3 className="text-sm md:text-base font-bold text-[#051024] text-center">Wood</h3>
-                  </div>
-                </div>
-
-                {/* Data Rows */}
-                <div>
-                  {/* Maintenance Row */}
-                  <div className="grid grid-cols-4 border-b border-gray-200">
-                    <div className="p-4 md:p-6 bg-gray-50 border-r border-gray-200 flex items-center sticky left-0 z-10">
-                      <span className="text-sm md:text-base font-medium text-[#051024]">Maintenance</span>
-                    </div>
-                    <div className="p-4 md:p-6 bg-[#051024] border-r border-gray-200 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span className="text-sm text-white font-medium text-center">None</span>
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6 bg-white border-r border-gray-200 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <AlertTriangle className="w-5 h-5 text-amber-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">Moderate</span>
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6 bg-white flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <X className="w-5 h-5 text-red-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">High</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Weather Resistance Row */}
-                  <div className="grid grid-cols-4 border-b border-gray-200">
-                    <div className="p-4 md:p-6 bg-gray-50 border-r border-gray-200 flex items-center sticky left-0 z-10">
-                      <span className="text-sm md:text-base font-medium text-[#051024]">Weather Resistance</span>
-                    </div>
-                    <div className="p-4 md:p-6 bg-[#051024] border-r border-gray-200 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span className="text-sm text-white font-medium text-center">Excellent</span>
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6 bg-white border-r border-gray-200 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <AlertTriangle className="w-5 h-5 text-amber-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">Good</span>
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6 bg-white flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <X className="w-5 h-5 text-red-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">Poor</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Colour Stability Row */}
-                  <div className="grid grid-cols-4 border-b border-gray-200">
-                    <div className="p-4 md:p-6 bg-gray-50 border-r border-gray-200 flex items-center sticky left-0 z-10">
-                      <span className="text-sm md:text-base font-medium text-[#051024]">Colour Stability</span>
-                    </div>
-                    <div className="p-4 md:p-6 bg-[#051024] border-r border-gray-200 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span className="text-sm text-white font-medium text-center">Stable</span>
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6 bg-white border-r border-gray-200 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <AlertTriangle className="w-5 h-5 text-amber-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">Fades</span>
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6 bg-white flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <X className="w-5 h-5 text-red-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">Fades</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Warping / Movement Row */}
-                  <div className="grid grid-cols-4 border-b border-gray-200">
-                    <div className="p-4 md:p-6 bg-gray-50 border-r border-gray-200 flex items-center sticky left-0 z-10">
-                      <span className="text-sm md:text-base font-medium text-[#051024]">Warping / Movement</span>
-                    </div>
-                    <div className="p-4 md:p-6 bg-[#051024] border-r border-gray-200 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span className="text-sm text-white font-medium text-center">None</span>
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6 bg-white border-r border-gray-200 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <AlertTriangle className="w-5 h-5 text-amber-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">Some</span>
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6 bg-white flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <X className="w-5 h-5 text-red-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">Significant</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Lifespan Row */}
-                  <div className="grid grid-cols-4 border-b border-gray-200">
-                    <div className="p-4 md:p-6 bg-gray-50 border-r border-gray-200 flex items-center sticky left-0 z-10">
-                      <span className="text-sm md:text-base font-medium text-[#051024]">Lifespan</span>
-                    </div>
-                    <div className="p-4 md:p-6 bg-[#051024] border-r border-gray-200 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span className="text-sm text-white font-medium text-center">20 Years</span>
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6 bg-white border-r border-gray-200 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <AlertTriangle className="w-5 h-5 text-amber-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">7-8 Years</span>
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6 bg-white flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <X className="w-5 h-5 text-red-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">5 Years</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Sustainability Row */}
-                  <div className="grid grid-cols-4">
-                    <div className="p-4 md:p-6 bg-gray-50 border-r border-gray-200 flex items-center sticky left-0 z-10">
-                      <span className="text-sm md:text-base font-medium text-[#051024]">Sustainability</span>
-                    </div>
-                    <div className="p-4 md:p-6 bg-[#051024] border-r border-gray-200 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span className="text-sm text-white font-medium text-center">100% Recyclable</span>
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6 bg-white border-r border-gray-200 flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <AlertTriangle className="w-5 h-5 text-amber-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">Limited</span>
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6 bg-white flex items-center justify-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <X className="w-5 h-5 text-red-500" />
-                        <span className="text-sm text-gray-700 font-medium text-center">Not Recyclable</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Footer Text */}
-            <div className="mt-8 pt-6 border-t border-gray-200">
-              <p className="text-base md:text-lg text-gray-600 font-light text-center">
-                Designed for long-term performance with minimal intervention.
-              </p>
-            </div>
-          </div>
+          {/* Material comparison */}
+          <MaterialIntelligence />
         </div>
       </div>
-
 
       {/* Toast Notification */}
       <AnimatePresence>
@@ -750,4 +559,3 @@ export default function ProductDetailPage() {
     </div>
   );
 }
-
