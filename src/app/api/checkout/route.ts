@@ -7,15 +7,15 @@ export const runtime = 'nodejs';
 const wait = (milliseconds: number) =>
   new Promise<void>((resolve) => setTimeout(resolve, milliseconds));
 
-async function resolveSmtpAddress(host: string): Promise<string> {
+async function resolveSmtpAddresses(hostname: string): Promise<string[]> {
   let lastError: unknown;
 
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     try {
-      const addresses = await resolve4(host);
+      const addresses = await resolve4(hostname);
 
       if (addresses.length > 0) {
-        return addresses[0];
+        return [...new Set(addresses)];
       }
     } catch (error) {
       lastError = error;
@@ -52,11 +52,9 @@ export async function POST(request: Request) {
     const smtpUser = process.env.SMTP_USER?.trim();
     const smtpPassword = process.env.SMTP_PASSWORD;
     const contactTo = process.env.CONTACT_TO?.trim() || smtpUser;
-
     const smtpHost = (
       process.env.SMTP_HOST || 'smtp.ionos.co.uk'
     ).trim();
-
     const smtpPort = Number(process.env.SMTP_PORT || 465);
 
     if (!smtpUser || !smtpPassword || !contactTo) {
@@ -70,54 +68,55 @@ export async function POST(request: Request) {
       throw new Error('Invalid SMTP port.');
     }
 
-    /*
-     * Vercel'deki geçici getaddrinfo EBUSY hatasını önlemek için
-     * SMTP alan adını önce doğrudan IPv4 adresine çözüyoruz.
-     */
-    const smtpAddress = await resolveSmtpAddress(smtpHost);
+    const smtpAddresses = await resolveSmtpAddresses(smtpHost);
+    let lastSendError: unknown;
 
-    const transporter = nodemailer.createTransport({
-      host: smtpAddress,
-      port: smtpPort,
-      secure: smtpPort === 465,
+    for (const smtpAddress of smtpAddresses) {
+      try {
+        const transporter = nodemailer.createTransport({
+          host: smtpAddress,
+          port: smtpPort,
+          secure: smtpPort === 465,
 
-      auth: {
-        user: smtpUser,
-        pass: smtpPassword,
-      },
+          auth: {
+            user: smtpUser,
+            pass: smtpPassword,
+          },
 
-      /*
-       * Bağlantı IP adresine kurulsa bile TLS sertifikası
-       * smtp.ionos.co.uk adına göre doğrulanır.
-       */
-      tls: {
-        servername: smtpHost,
-      },
+          tls: {
+            servername: smtpHost,
+          },
 
-      connectionTimeout: 20_000,
-      greetingTimeout: 15_000,
-      socketTimeout: 30_000,
-    });
+          connectionTimeout: 20_000,
+          greetingTimeout: 15_000,
+          socketTimeout: 30_000,
+        });
 
-    await transporter.sendMail({
-      from: `"Via Fortis Website" <${smtpUser}>`,
-      to: contactTo,
-      replyTo: email,
-      subject: `New Website Enquiry - ${name}`,
-      text: `
+        await transporter.sendMail({
+          from: `"Via Fortis Website" <${smtpUser}>`,
+          to: contactTo,
+          replyTo: email,
+          subject: `New Website Enquiry - ${name}`,
+          text: `
 Name: ${name}
 Phone: ${phone}
 Email: ${email}
 
 Message:
 ${message}
-      `.trim(),
-    });
+          `.trim(),
+        });
 
-    return NextResponse.json({
-      success: true,
-      message: 'Your enquiry has been sent successfully.',
-    });
+        return NextResponse.json({
+          success: true,
+          message: 'Your enquiry has been sent successfully.',
+        });
+      } catch (error) {
+        lastSendError = error;
+      }
+    }
+
+    throw lastSendError || new Error('SMTP message could not be sent.');
   } catch (error) {
     console.error('Contact form error:', error);
 
