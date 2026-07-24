@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { Manrope, Playfair_Display, Inter } from 'next/font/google';
 
+// Suppress TS error for side-effect CSS import without type declarations
+// @ts-ignore
 import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 
@@ -114,23 +116,7 @@ export default function RootLayout({
       className={`${manrope.variable} ${playfairDisplay.variable} ${inter.variable}`}
     >
       <body className="antialiased font-sans">
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-1RSGV5FB7G"
-          strategy="afterInteractive"
-        />
-
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-              window.dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-            gtag('config', 'G-1RSGV5FB7G');
-          `}
-        </Script>
+        <GoogleTagManager gtmId="GTM-KN5F658R" />
 
         <CartProvider>{children}</CartProvider>
       </body>

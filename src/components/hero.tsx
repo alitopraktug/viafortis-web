@@ -43,8 +43,7 @@ export default function Hero() {
 
           {/* Services */}
           <p className="mx-auto mt-7 max-w-6xl text-sm leading-relaxed text-slate-700 sm:text-base md:text-lg">
-            Bespoke Carpentry • Internal Doors • Fitted Wardrobes • Bespoke
-            Furniture • Aluminium Fencing • Pedestrian Gates
+            Bespoke Carpentry • Kitchen Fitting • Internal Doors • Fitted Wardrobes • Bespoke Furniture • Aluminium Fencing • Aluminium Pedestrian Gates
           </p>
 
         {/* Design / Supply / Installation */}

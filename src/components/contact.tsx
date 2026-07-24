@@ -85,31 +85,7 @@ export default function Contact() {
               </div>
             </FadeIn>
 
-            {/* Products Card */}
-            <FadeIn
-              duration={0.8}
-              delay={0.3}
-              className="flex flex-col items-center justify-center rounded-2xl border border-gray-200 bg-gray-50 p-6 text-center sm:p-8"
-            >
-              <div className="mb-4 rounded-xl bg-[#051024] p-4">
-                <QrCode className="h-10 w-10 text-white sm:h-12 sm:w-12" />
-              </div>
-
-              <h3 className="text-lg font-medium text-[#051024] sm:text-xl">
-                Aluminium Systems
-              </h3>
-
-              <p className="mt-3 text-sm font-light leading-relaxed text-gray-600">
-                Explore our aluminium fencing and pedestrian gate systems.
-              </p>
-
-              <a
-                href="/products"
-                className="mt-5 flex w-full items-center justify-center rounded-xl bg-[#051024] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#051024]/90"
-              >
-                View Products
-              </a>
-            </FadeIn>
+          
           </div>
 
           {/* Mobile: Form second / at the bottom

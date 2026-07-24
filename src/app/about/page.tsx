@@ -24,7 +24,7 @@ export default function AboutPage() {
                 ABOUT VIA FORTIS
               </p>
 
-              <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#051024] leading-tight">
+              <h1 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#051024] leading-tight">
                 Design to Impress.
               </h1>
             </div>
