@@ -3,12 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ChevronDown,
-  Menu,
-  ShoppingBag,
-  X,
-} from "lucide-react";
+import { ChevronDown, Menu, ShoppingBag, X } from "lucide-react";
 
 const aluminiumItems = [
   "Aluminium Fencing",
@@ -17,6 +12,7 @@ const aluminiumItems = [
 
 const carpentryItems = [
   "Internal Doors",
+  "Kitchen Fitting",
   "Skirting & Architraves",
   "Bespoke Furniture",
   "Fitted Wardrobes",
@@ -82,6 +78,7 @@ export default function Header() {
                 className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest text-white transition-colors hover:text-white/70"
               >
                 Aluminium Systems
+
                 <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
               </Link>
 
@@ -107,6 +104,7 @@ export default function Header() {
                 className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest text-white transition-colors hover:text-white/70"
               >
                 Carpentry
+
                 <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
               </Link>
 

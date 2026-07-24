@@ -1,6 +1,13 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { CheckCircle } from "lucide-react";
+import { Allura } from "next/font/google";
+
+const allura = Allura({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
 
 const reasons = [
   "Bespoke Craftsmanship",
@@ -18,36 +25,40 @@ export default function AboutPage() {
 
       <main className="pt-28 sm:pt-32">
         <section className="py-14 sm:py-20">
-          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+          <div className="container mx-auto max-w-5xl px-4 sm:px-6">
             <div className="mb-12">
-              <p className="text-sm tracking-[0.2em] uppercase text-slate-500">
+              <p className="text-sm uppercase tracking-[0.2em] text-slate-500">
                 ABOUT VIA FORTIS
               </p>
 
-              <h1 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#051024] leading-tight">
+              <h1
+                className={`${allura.className} mt-3 text-[32px] leading-none text-[#051024] sm:text-[36px] md:text-[40px]`}
+              >
                 Design to Impress.
               </h1>
             </div>
 
             <div className="space-y-12">
               <section>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#051024]">
+                <h2 className="font-serif text-2xl font-bold text-[#051024] sm:text-3xl">
                   Who We Are
                 </h2>
-                <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700">
+
+                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
                   Via Fortis delivers premium outdoor and interior solutions for
                   residential and commercial properties. We specialise in
                   bespoke carpentry, kitchen fitting, fitted furniture, internal
-                  door installation, skirting & architraves, and aluminium
-                  fencing & gate systems.
+                  door installation, skirting &amp; architraves, and aluminium
+                  fencing &amp; gate systems.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#051024]">
+                <h2 className="font-serif text-2xl font-bold text-[#051024] sm:text-3xl">
                   What We Do
                 </h2>
-                <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700">
+
+                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
                   From bespoke kitchens and media walls to fitted wardrobes,
                   understairs storage, custom furniture and aluminium gate
                   installations, every project is tailored to our clients’ needs
@@ -56,19 +67,21 @@ export default function AboutPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#051024]">
+                <h2 className="font-serif text-2xl font-bold text-[#051024] sm:text-3xl">
                   Our Process
                 </h2>
-                <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700">
+
+                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
                   Every project begins with a consultation and site survey,
                   followed by expert design, material selection, supply and
                   professional installation. We manage every stage from start to
-                  finish, ensuring a seamless experience and exceptional results.
+                  finish, ensuring a seamless experience and exceptional
+                  results.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#051024]">
+                <h2 className="font-serif text-2xl font-bold text-[#051024] sm:text-3xl">
                   Why Choose Via Fortis
                 </h2>
 
@@ -79,7 +92,8 @@ export default function AboutPage() {
                       className="flex items-start gap-3 rounded-sm border border-slate-200 bg-slate-50 p-4"
                     >
                       <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#051024]" />
-                      <span className="text-slate-700 font-medium">
+
+                      <span className="font-medium text-slate-700">
                         {reason}
                       </span>
                     </div>
@@ -87,18 +101,19 @@ export default function AboutPage() {
                 </div>
               </section>
 
-              <section className="rounded-sm bg-[#051024] text-white p-6 sm:p-8">
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold">
+              <section className="rounded-sm bg-[#051024] p-6 text-white sm:p-8">
+                <h2 className="font-serif text-2xl font-bold sm:text-3xl">
                   Our Promise
                 </h2>
-                <p className="mt-4 text-base sm:text-lg leading-relaxed text-white/85">
+
+                <p className="mt-4 text-base leading-relaxed text-white/85 sm:text-lg">
                   We believe every project should combine functionality, quality
                   and timeless design. Our mission is to create spaces that not
                   only meet expectations but leave a lasting impression through
                   exceptional craftsmanship and attention to detail.
                 </p>
 
-                <p className="mt-6 text-xl sm:text-2xl font-serif font-bold">
+                <p className="mt-6 font-serif text-xl font-bold sm:text-2xl">
                   Design to Impress.
                 </p>
               </section>
